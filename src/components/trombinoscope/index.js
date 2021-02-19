@@ -5,20 +5,22 @@ const Trombinoscope = () => {
   const [dataApi, setData] = useState([])
 
   useEffect(() => {
-    axios.get('http://hp-api.herokuapp.com/api/characters').then(
-      res => {
-        console.log(res.data)
+    axios
+      .get('http://hp-api.herokuapp.com/api/characters')
+      .then(res => {
+        // console.log(res.data)
         setData(res.data)
-      },
-      [dataApi]
-    )
-  })
+      })
+      .catch(e => {
+        console.log(e)
+      })
+  }, [axios])
 
   return (
     <div>
       <h1>Trombinoscope</h1>
       {dataApi.map(data => (
-        <div key={data.key}>
+        <div key={data.name}>
           <img src={data.image} width='200px' />
           <p>{data.name}</p>
         </div>
