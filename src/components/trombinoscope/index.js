@@ -8,13 +8,13 @@ const Trombinoscope = () => {
     axios
       .get('http://hp-api.herokuapp.com/api/characters')
       .then(res => {
-        // console.log(res.data)
+        console.log(res.data)
         setData(res.data)
       })
       .catch(e => {
         console.log(e)
       })
-  }, [axios])
+  }, [])
 
   return (
     <div>
